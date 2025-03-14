@@ -26,3 +26,5 @@ def guess(self,x,y):
     else:
         return "Miss"
     
+def add_
+    
