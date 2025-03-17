@@ -40,11 +40,12 @@ def add_ship(self, x, y):# Ship addition to board
         if self.type == "player":
             self.board [x][y] = "@" #Showing the ships only for the player
 
-def random_point(size):
-    """
-    Helper function to return a random integer between 0 and 4
-    """
-    return randint(0,size -1)
+def random_point(size, excluded_points):
+    #Creates random position that isn't in excluded_points
+    while True:
+        x, y = random.randint (0,size -1), random.randint (0,size -1)
+        if (x, y) not in excluded_points:
+            return x, y
 
 def valid_coordinates(x, y, board):
     """
