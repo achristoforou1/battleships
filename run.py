@@ -47,11 +47,21 @@ def random_point(size, excluded_points):
         if (x, y) not in excluded_points:
             return x, y
 
-def valid_coordinates(x, y, board):
+def get_valid_input(prompt, board):
     """
     Validates coordinates that have been input and makes sure 
     they are not outside the board scope
     """
+    while True:
+        try:
+            value = int(input(prompt))
+            if 0 <= value < board.size:
+                return value
+            else:
+                print(f"Invalid input! Please enter a number between 0 and {board.size - 1}.")
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
 
 def populate_board(board):
 
