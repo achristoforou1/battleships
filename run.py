@@ -1,3 +1,5 @@
+import random
+
 class Board:
     """
     Main board class. Sets board size, number of ships, player name and board tyoe (player or computer)
@@ -5,16 +7,18 @@ class Board:
     """
 def __init__(self, size, num_ships, name, type):
     self.size = size
-    self.board = [("5" for x in range (size) for y in range (size))]
+    self.board = [["." for _ in range (size)] for _ in range (size)]#Creation of blank board
     self.num_ships = num_ships
-    self.name = name
-    self.type = type
-    self.guesses = []
-    self.ships = []
+    self.name = name #Player name/Computer
+    self.type = type # Player or computer board type
+    self.guesses = set() #Coordinates that have been used
+    self.ships = set() #Ship coordinates
 
-def print(self):
+def print_board(self, hide_ships = False):#Computer board with computer ships hidden
+    print(f"{self.name}'s Board:")
     for row in self.board:
         print("". join(row))
+    print()
 
 def guess(self,x,y):
     self.guesses.append(x,y)
