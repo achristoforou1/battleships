@@ -5,38 +5,40 @@ class Board:
     Main board class. Sets board size, number of ships, player name and board tyoe (player or computer)
     Has methods for adding ships and guesses and printing the board.
     """
-def __init__(self, size, num_ships, name, type):
-    self.size = size
-    self.board = [["." for _ in range (size)] for _ in range (size)]#Creation of blank board
-    self.num_ships = num_ships
-    self.name = name #Player name/Computer
-    self.type = type # Player or computer board type
-    self.guesses = set() #Coordinates that have been used
-    self.ships = set() #Ship coordinates
+    def __init__(self, size, num_ships, name, type):
+        self.size = size
+        self.board = [["." for _ in range (size)] for _ in range (size)]#Creation of blank board
+        self.num_ships = num_ships
+        self.name = name #Player name/Computer
+        self.type = type # Player or computer board type
+        self.guesses = set() #Coordinates that have been used
+        self.ships = set() #Ship coordinates
 
-def print_board(self, hide_ships = False):#Computer board with computer ships hidden
-    print(f"{self.name}'s Board:")
-    for row in self.board:
-        print("". join(row))
-    print()
+    def print_board(self, hide_ships = False):#Computer board with computer ships hidden
+        print(f"{self.name}'s Board:")
+        for row in self.board:
+            print("". join(row))
+        print()
 
-def guess(self,x,y):
-    self.guesses.append(x,y)
-    self.board [x][y] = "x"
+    def guess(self,x,y):#Processing attack attempts
+        self.guesses.add((x,y))
+        if (x,y) in self.ships:
+            self.board [x][y] = "*"#Hit
+            return "Hit!"
+        else:
+            self.board[x][y]= "X"#Miss
+            return "Miss!"
 
-    if (x,y) in self.ships:
-        self.board[x][y] = ""
-        return "Hit"
-    else:
-        return "Miss"
+
+   
     
-def add_ship(self, x, y, type = "computer"):
-    if len(self.ships) > self.num_ships:
+def add_ship(self, x, y):# Ship addition to board
+    if len(self.ships) >= self.num_ships:
         print("Error:You cannot add any more ships")
     else:
-        self.ships.append((x,y))
+        self.ships.add((x,y))
         if self.type == "player":
-            self.board [x][y] = "@"
+            self.board [x][y] = "@" #Showing the ships only for the player
 
 def random_point(size):
     """
