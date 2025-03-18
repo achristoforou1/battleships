@@ -1,4 +1,5 @@
 import random
+import sys
 
 class Board:
     """
@@ -109,6 +110,24 @@ def play_game(computer_board, player_board):
                 print("Game exited. Goodbye!")
                 break
             else: new_game()
+
+        # Score print and exit option
+        print("\n------------------------------------")
+        player_score = len(computer_board.guesses & computer_board.ships)
+        computer_score = len(player_board.guesses & player_board.ships)
+        print(f"After this round, the scores are:\nPlayer: {player_score}\nComputer: {computer_score}")
+        print("------------------------------------")
+        
+        choice = input("\nEnter any key to continue or 'n' to exit: ")
+        if choice.lower() == 'n':
+            print("Game exited. Goodbye!")
+            sys.exit()
+        
+        # Ενημέρωση κατάστασης πινάκων
+        print("\nCurrent Boards:")
+        player_board.print_board()
+        computer_board.print_board(hide_ships=True)
+
 
     
 def new_game():
