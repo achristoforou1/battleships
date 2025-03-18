@@ -95,6 +95,20 @@ def play_game(computer_board, player_board):
                 print("Game exited. Goodbye!")
                 break
             else: new_game()
+        # Computer's turn
+        print("\nComputer's turn:")
+        cx, cy, cresult = make_guess(computer_board, player_board)
+        print(f"Computer guessed: ({cx}, {cy})")
+        print("Computer hit a ship!" if cresult == "Hit!" else "Computer missed this time!")
+        
+        # Check for computer win and game restart
+        if player_board.ships.issubset(player_board.guesses):
+            print("\nComputer wins!")
+            choice2 = input("\nEnter any key to restart a game or 'n' to exit: ")
+            if choice2.lower() == 'n':
+                print("Game exited. Goodbye!")
+                break
+            else: new_game()
 
     
 def new_game():
