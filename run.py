@@ -62,10 +62,7 @@ def get_valid_input(prompt, board):
         except ValueError:
             print("Invalid input! Please enter a valid number.")
 
-
-def populate_board(board):
-
-def make_guess(board):
+def make_guess(attacker_board, defender_board):
     """
     Processes the guesses. If player guess then prompt for input.
     If comp guess, random row and column, exactly the same as when
