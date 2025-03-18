@@ -87,6 +87,14 @@ def play_game(computer_board, player_board):
         x, y, result = make_guess(player_board, computer_board)
         print(f"Player guessed: ({x}, {y})")
         print("Player hit a ship!" if result == "Hit!" else "Player missed this time!")
+        #Check for player win and game restart
+        if computer_board.ships.issubset(computer_board.guesses):#check computer board
+            print("\nPlayer wins!")
+            choice2 = input("\nEnter any key to restart a game or 'n' to exit: ")
+            if choice2.lower() == 'n':
+                print("Game exited. Goodbye!")
+                break
+            else: new_game()
 
     
 def new_game():
