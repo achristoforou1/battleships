@@ -123,7 +123,7 @@ def play_game(computer_board, player_board):
             print("Game exited. Goodbye!")
             sys.exit()
         
-        # Ενημέρωση κατάστασης πινάκων
+        # Boards update
         print("\nCurrent Boards:")
         player_board.print_board()
         computer_board.print_board(hide_ships=True)
@@ -137,8 +137,6 @@ def new_game():
     """
     size = 5
     num_ships = 4
-    scores ["computer"] = 0
-    scores ["player"] = 0
     print ("-" * 35)
     print ("Welcome to Ultimate Battleships")
     print (f"Board Size: {size}. Number of ships:{num_ships}")
@@ -147,13 +145,25 @@ def new_game():
     player_name = input("Please enter your name: \n")
     print ("-" * 35)
 
-computer_board = Board(size,num_ships,"Computer", type = "computer")
-player_board = Board (size, num_ships, player_name, type = "player")
+    # Board variables from board class
+    computer_board = Board(size,num_ships,"Computer", "computer")
+    player_board = Board (size, num_ships, player_name, "player")
 
-for _ in range(num_ships):
-    populate_board(player_board)
-    populate_board(computer_board)
+    # Ship positioning for both boards
+    for _ in range(num_ships):
+        x, y = random_point(size, player_board.ships)
+        player_board.add_ship(x, y)
+        x, y = random_point(size, computer_board.ships)
+        computer_board.add_ship(x, y)
 
-play_game(computer_board, player_board)
+    print("Initial Boards:")
+    player_board.print_board()
+
+    #Hide computer ships
+    computer_board.print_board(hide_ships=True) 
+    
+
+
+    play_game(computer_board, player_board)
 
 new_game()
