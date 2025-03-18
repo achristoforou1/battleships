@@ -80,10 +80,14 @@ def make_guess(attacker_board, defender_board):
             x, y = random_point(defender_board.size, defender_board.guesses)
         
 
-def play_game(computer.board, player.board):
-    """
-    Called at the end of the code
-    """
+def play_game(computer_board, player_board):
+    while True:
+        #player turn
+        print("/nPlayer's turn:")
+        x, y, result = make_guess(player_board, computer_board)
+        print(f"Player guessed: ({x}, {y})")
+        print("Player hit a ship!" if result == "Hit!" else "Player missed this time!")
+
     
 def new_game():
     """
