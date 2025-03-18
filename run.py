@@ -68,6 +68,17 @@ def make_guess(attacker_board, defender_board):
     If comp guess, random row and column, exactly the same as when
     populating the board
     """
+    while True:
+        if attacker_board.type == "player":
+            x = get_valid_input("Enter row:", attacker_board)
+            #Check for re used cordinates
+            if (x, y) in defender_board.guesses:
+                print("You've already guessed this coordinate! Try again.")
+                continue
+        else:
+            #Automatic computer move
+            x, y = random_point(defender_board.size, defender_board.guesses)
+        
 
 def play_game(computer.board, player.board):
     """
