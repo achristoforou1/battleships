@@ -56,4 +56,45 @@ The winner is the player who sinks all of their opponent's battleships first.
    - __Allow player to select the board size and number of ships__
    - __Allow player to position ships themselves__
    - __Have ships larger than 1x1__
-   
+
+   ## Data model
+
+   I decided to use a Board class as my model. The game creates two instances of the Board class to hold the player's and computer's boards.
+
+   The Board class stores the board size, the number of ships, the position of the ships, the guesses against that board and details such as the board type (player's board or computer) and the player's name.
+
+   The class also has methods to help play the game, such as print method to print out the current board, an add_ships method to add ships tp the board and an add_guess method to add a guess and return the result.
+
+   ## Testing
+
+   I have manually tested this project ny doing the following:
+
+   - __Passed the code through a PEP8 linter and confirmed there are no problems__
+   - __Given invalid inputs: strings when numbers are expected, out of bounds inputs, same input twice__
+   - __Tested in my local terminal and the Code Institute Heroku terminal__
+
+   ## Bugs
+
+   ### Solved bugs
+
+   - __When i was writing the project and trying to run it I often encountered errors due to indentation which I eventually fixed__
+   - __Due to the length of each line of code having to be under 80 characters I split some strings using the + sign and some print messages into multiple lines__
+   - __In the make_guess function i was getting an error message when running the program after the continue in the if statement a break statement was also needed to come out of the loop__
+
+   ### Remaining Bugs
+
+   - __No bugs remaining__
+
+   ### Validator testing
+
+   - __PEP8__
+    - For testing i used https://pep8ci.herokuapp.com/
+    - All errors regarding lines were fixed with spliting the strings, breaking the print lines into multiple lines and also formatting using black.
+    - One error has remained for trailing whitespace which I don't have the time to research. The other ones I managed to fix.
+
+    ![image of PEP8 tesing](/assets/images/pep8_testing.png)
+
+
+
+
+
