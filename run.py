@@ -173,7 +173,7 @@ def new_game():
     size = 5
     num_ships = 4
     print("-" * 35)
-    print("Welcome to Ultimate Battleships")
+    print("Welcome to Battleships 2025!")
     print(f"Board Size: {size}. Number of ships:{num_ships}")
     print("Top left corner is row: 0, col: 0")
     print("-" * 35)
