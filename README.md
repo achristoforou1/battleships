@@ -94,6 +94,27 @@ The winner is the player who sinks all of their opponent's battleships first.
 
     ![image of PEP8 tesing](/assets/images/pep8_testing.png)
 
+    ## Deployment
+
+    This project was deployed using Code Institute's mock terminal for Heroku.
+
+    - __Steps for deployment:__
+     - Fork or clone this repository.
+     - Create a new Heroku app.
+     - Set the buildbacks to Python and NodeJS in that order.
+     - Link the Heroku app to the repository.
+     - Click on Deploy.
+
+     ## Credits
+
+     - __Code Institute for the deployment terminal__
+     - __Wikipedia for the details of the Battleships game__
+     - __Matt Rudge from Code Institute for the idea and the initial ideas and some of the code provided on his introductory video for this project__
+     - __My mentor Moritz Wach for his help in solving some final bugs in two of the functions__
+     
+
+
+
 
 
 
